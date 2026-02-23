@@ -1,0 +1,19 @@
+(improved) RSA Encryption GUI
+
+1: all-in-one: displays values, key pair, plaintext, and ciphertext all on one page
+
+2: one window, different tabs
+    Encryption tab:
+            - generates public key and private key
+            - input message box with submit button
+            - input message is encrypted using public key
+            - encrypted message is displayed with copy button
+
+    Decryption tab: 
+            - input text box with paste button
+            - box for private key input and decrypt button
+            - decrypted message is displayed
+
+NEXT STEPS:
+ - just make it look nice lol
+ - try with other algorithms
