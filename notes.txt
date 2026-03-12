@@ -17,3 +17,8 @@
 NEXT STEPS:
  - just make it look nice lol
  - try with other algorithms
+
+ 3/11/2026:
+ updated web interface and added copy & paste functionality.
+ next will be to figure out how to connect Python functions to user interface.
+ otherwise will need to figure out how to use javascript to do calculations.
