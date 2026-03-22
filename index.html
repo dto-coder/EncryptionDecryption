@@ -12,27 +12,16 @@
     <p>This is a regular text in HTML.</p>
 
     <div id="container">
-
-        <!-- <input type="text" id="input" placeholder="Enter text here">
-        <button onclick="appendToDisplay()">Display</button> -->
-        <br>
-        
-        <!-- <div id="copy">
-            <button onclick="copyText()">Copy</button>
+        <div id="message-input">
+            <label for="message">Enter message to encrypt:</label>
+            <input type="text" id="message" name="message">
+            <button onclick="display()">Display Message</button>
         </div>
-        <div id="paste">
-            <button onclick="pasteText()">Paste</button>
-        </div>
-        <div id="clear">
-            <button onclick="clearDisplay()">Clear</button>
-        </div> -->
         <br>
-        <br>
-
+        <div id="display-message"></div>
         <br>
         <div id="display"></div>
-        <div id="display-public"></div>
-        <div id="display-private"></div>
+        <div id="display-encrypted"></div>
         <br>
         <div id="genKeys">
             <button onclick="generateRSAKeys()">Generate RSA Keys</button>
