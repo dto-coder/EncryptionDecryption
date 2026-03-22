@@ -34,5 +34,22 @@ function generateRandomPrime() {
     }
     const randomIndex = Math.floor(Math.random() * primes.length);
     const randomPrime = primes[randomIndex];
-    document.getElementById("display").innerHTML = randomPrime;
+    // document.getElementById("display").innerHTML = randomPrime;
+    return randomPrime;
+
+}
+function generateRSAKeys() {
+    const p = generateRandomPrime();
+    const q = generateRandomPrime();
+    const n = p * q;
+    const phi = (p - 1) * (q - 1);
+    // let e = 3
+    // while (gcd(e, phi) !== 1) {
+    //     e += 2;
+    // }  
+    // const d = modInverse(e, phi);
+    document.getElementById("display").innerHTML = "p: " + p;
+    document.getElementById("display").innerHTML += "<br>q: " + q;
+    document.getElementById("display").innerHTML += "<br>n: " + n;
+    document.getElementById("display").innerHTML += "<br>φ(n): " + phi;
 }
