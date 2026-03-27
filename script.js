@@ -1,4 +1,3 @@
-/*
 function copyText() {
     var text = document.getElementById("display").innerHTML;
     navigator.clipboard.writeText(text);
@@ -8,21 +7,13 @@ function pasteText() {
     navigator.clipboard.readText().then(function(text) {
         document.getElementById("display").innerHTML += text;
     });
-}*/
+}
 function clearDisplay() {
     document.getElementById("display").innerHTML = "";
     // document.getElementById("message-input").value = "";
     document.getElementById("display-message").innerHTML = "";
+    document.getElementById("displayKeys").innerHTML = "";
 }
-
-const p = generateRandomPrime();
-const q = generateRandomPrime();
-const n = p * q;
-const phi = (p - 1) * (q - 1);
-// let e = generateRandomPrime(); // You can also choose a fixed e like 65537
-let e = 65537; // Common choice for e
-const d = modInverse(e, phi);
-
 function display() {
     var input = document.getElementById("message").value;
     var display = document.getElementById("display-message");
@@ -80,14 +71,35 @@ function modInverse(a, m) {
     }
     return x;
 }
-function generateRSAKeys() {
 
-    document.getElementById("display").innerHTML = "p: " + p;
-    document.getElementById("display").innerHTML += "<br>q: " + q;
-    document.getElementById("display").innerHTML += "<br>n: " + n;
-    document.getElementById("display").innerHTML += "<br>φ(n): " + phi;
-    document.getElementById("display").innerHTML += "<br>e: " + e;
-    document.getElementById("display").innerHTML += "<br>d: " + d;
+var p = generateRandomPrime();
+var q = generateRandomPrime();
+var n = p * q;
+var phi = (p - 1) * (q - 1);
+// let e = generateRandomPrime(); // You can also choose a fixed e like 65537
+var e = 65537; // Common choice for e
+var d = modInverse(e, phi);
+
+async function generateRSAKeys() {
+    p = generateRandomPrime();
+    q = generateRandomPrime();
+    n = p * q;
+    phi = (p - 1) * (q - 1);
+    // let e = generateRandomPrime(); // You can also choose a fixed e like 65537
+    let e = 65537; // Common choice for e
+    d = modInverse(e, phi);
+    document.getElementById("keygen-display").innerHTML = "Generating RSA Keys...";
+    await new Promise(resolve => setTimeout(resolve, 1000)); // Simulate delay
+    document.getElementById("keygen-display").innerHTML = "RSA Keys Generated!";
+    return { p, q, n, phi, e, d };
+}
+function printKeyValues() {
+    document.getElementById("displayKeys").innerHTML = "p: " + p;
+    document.getElementById("displayKeys").innerHTML += "<br>q: " + q;
+    document.getElementById("displayKeys").innerHTML += "<br>n: " + n;
+    document.getElementById("displayKeys").innerHTML += "<br>φ(n): " + phi;
+    document.getElementById("displayKeys").innerHTML += "<br>e: " + e;
+    document.getElementById("displayKeys").innerHTML += "<br>d: " + d;
 }
 function encryptMessage(message, e, n) {
     const encrypted = [];

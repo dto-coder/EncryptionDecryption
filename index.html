@@ -18,7 +18,7 @@
             <input type="text" id="message" name="message">
             <button onclick="display()">Display Message</button>
             <button onclick="clearDisplay()">Clear</button>
-        </div><br>
+        </div>
         
         <p>"display-message"</p>
         <div id="display-message"></div>
@@ -35,7 +35,10 @@
         <p>"genKeys"</p>
         <div id="genKeys">
             <button onclick="generateRSAKeys()">Generate RSA Keys</button>
+            <button onclick="printKeyValues()">Display RSA Keys</button>
+            <div id="keygen-display"></div>
         </div>
+        <div id="displayKeys"></div>
     </div>
 </body>
 </html>
