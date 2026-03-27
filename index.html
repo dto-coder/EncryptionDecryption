@@ -9,20 +9,30 @@
    
 </head>
 <body>
-    <p>This is a regular text in HTML.</p>
+    <p>This is a regular text in HTML.</p><br>
 
     <div id="container">
+        <p>"message-input"</p>
         <div id="message-input">
             <label for="message">Enter message to encrypt:</label>
             <input type="text" id="message" name="message">
             <button onclick="display()">Display Message</button>
-        </div>
-        <br>
+            <button onclick="clearDisplay()">Clear</button>
+        </div><br>
+        
+        <p>"display-message"</p>
         <div id="display-message"></div>
-        <br>
+
+        <p>"display"</p>
         <div id="display"></div>
+
+        <p>"display-encrypted"</p>
         <div id="display-encrypted"></div>
-        <br>
+
+        <p>"display-decrypted"</p>
+        <div id="display-decrypted"></div>
+
+        <p>"genKeys"</p>
         <div id="genKeys">
             <button onclick="generateRSAKeys()">Generate RSA Keys</button>
         </div>

@@ -8,16 +8,30 @@ function pasteText() {
     navigator.clipboard.readText().then(function(text) {
         document.getElementById("display").innerHTML += text;
     });
-}
+}*/
 function clearDisplay() {
     document.getElementById("display").innerHTML = "";
-    document.getElementById("input").value = "";
+    // document.getElementById("message-input").value = "";
+    document.getElementById("display-message").innerHTML = "";
 }
-*/
+
+const p = generateRandomPrime();
+const q = generateRandomPrime();
+const n = p * q;
+const phi = (p - 1) * (q - 1);
+// let e = generateRandomPrime(); // You can also choose a fixed e like 65537
+let e = 65537; // Common choice for e
+const d = modInverse(e, phi);
+
 function display() {
     var input = document.getElementById("message").value;
     var display = document.getElementById("display-message");
-    display.innerHTML = input;
+    if (input === "") {
+        display.innerHTML = "Please enter a message to encrypt.";
+        return;
+    }
+    display.innerHTML = input + "<br>";
+    display.innerHTML += "e: " + e + "<br>n: " + n;
 }
 
 function generateRandomPrime() {
@@ -67,13 +81,6 @@ function modInverse(a, m) {
     return x;
 }
 function generateRSAKeys() {
-    const p = generateRandomPrime();
-    const q = generateRandomPrime();
-    const n = p * q;
-    const phi = (p - 1) * (q - 1);
-    // let e = generateRandomPrime(); // You can also choose a fixed e like 65537
-    let e = 65537; // Common choice for e
-    const d = modInverse(e, phi);
 
     document.getElementById("display").innerHTML = "p: " + p;
     document.getElementById("display").innerHTML += "<br>q: " + q;
